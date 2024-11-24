@@ -12,6 +12,11 @@ class User_model extends CI_Model {
         return $query->result();  // Kembalikan hasil sebagai array objek
     }
 
+    public function get_user_test(){
+        $query = $this->db->query("SELECT id, CONCAT(name, ' - ', email) as name_email from users where id = '3' ");
+        return $query->result();
+    }
+
     // Menyimpan data user baru
     public function insert_users($data) {
         return $this->db->insert('users', $data);

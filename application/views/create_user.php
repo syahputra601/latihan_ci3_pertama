@@ -6,3 +6,4 @@
     <input type="email" name="email" required><br><br>
     <input type="submit" value="Create User">
 </form>
+<a href="<?php echo site_url('user'); ?>">Back</a>

@@ -19,3 +19,5 @@
     </tr>
     <?php endforeach; ?>
 </table>
+<br>
+<a href="<?php echo site_url('User'); ?>">User List</a>
