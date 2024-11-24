@@ -1,6 +1,13 @@
-<IfModule authz_core_module>
-    Require all denied
-</IfModule>
-<IfModule !authz_core_module>
-    Deny from all
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Cek apakah file atau direktori yang diminta ada
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Arahkan semua permintaan ke index.php
+    RewriteRule ^(.*)$ index.php/$1 [L]
+
+    # Opsional: Nonaktifkan directory listing
+    Options -Indexes
 </IfModule>
