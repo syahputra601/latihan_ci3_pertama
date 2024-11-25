@@ -30,8 +30,8 @@
                 <td><?php echo $user->name; ?></td>
                 <td><?php echo $user->email; ?></td>
                 <td>
-                    <a href="<?php echo site_url('test/edit/').$user->id; ?>">Edit</a>
-                    <a href="<?php echo site_url('test/delete/').$user->id; ?>" onclick="return confirm('Are you sure to delete this data?');">delete</a>
+                    <a href="<?php echo site_url('test/edit/').$user->id; ?>" title="Edit User">Edit</a>
+                    <a href="<?php echo site_url('test/delete/').$user->id; ?>" onclick="return confirm('Are you sure to delete this data?');" title="Delete User">Delete</a>
                 </td>
             </tr>
             <?php endforeach; ?>
