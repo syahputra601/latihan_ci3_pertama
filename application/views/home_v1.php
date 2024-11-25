@@ -50,6 +50,32 @@
                 <?php endforeach; ?>
         </table>
     </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <table border="1">
+            <tr>
+                <td><label>Date TIme Now :</label></td>
+                <td><label><?= @$datetimeNow; ?></label></td>
+            </tr>
+            <tr>
+                <td><label>Date Now :</label></td>
+                <td><label><?= @$dateNow; ?></label></td>
+            </tr>
+            <tr>
+                <td><label>TIme Now :</label></td>
+                <td><label><?= @$timeNow; ?></label></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+        <form action="<?php echo site_url('test/test_alert'); ?>" method="POST">
+        <input type="test" name="test_btn_alert" id="test_btn_alert" placeholder="input kalimat untuk test alert">
+        <button type="submit" name="btn_alert">Test Alert</button>
+        </from>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>

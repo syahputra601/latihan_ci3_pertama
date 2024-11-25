@@ -13,6 +13,7 @@ Class Test_model extends CI_Model {
 
     public function get_user_test(){
         $query = $this->db->query("SELECT id, CONCAT(name, '_', email) as name_email FROM users where id = '3' ");
+        // echo $this->db->last_query();die();
         return $query->result();
     }
 

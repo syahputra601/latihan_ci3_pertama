@@ -8,15 +8,26 @@ class Test extends CI_Controller {
         // Load model User_model
         $this->load->model('User_model');
         $this->load->model('Test_model');
+        date_default_timezone_set("Asia/Jakarta");
     }
 
     // Fungsi untuk menampilkan daftar pengguna
     public function index() {
         $data['users'] = $this->Test_model->get_users();  // Ambil data pengguna dari model
         $data['test1'] = $this->Test_model->get_user_test();
+        $data['dateNow'] = date('Y-m-d');//date('Y-m-d H:i:s')
+		$data['timeNow'] = date('H:i:s');
+        $data['datetimeNow'] = date('Y-m-d H:i:s');
 
         // Muat tampilan dan kirim data
         $this->load->view('home_v1', $data);
+    }
+
+    function test_alert(){
+        $data_alert = $this->input->post('test_btn_alert');
+        // print_r($data_alert);die();
+        echo "<script>alert('Test Alert Pertama! ".$data_alert." ')</script>";
+        redirect('test', 'refresh');
     }
 
     public function create(){
