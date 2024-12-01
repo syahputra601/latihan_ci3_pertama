@@ -18,8 +18,19 @@ Class Test_model extends CI_Model {
     }
 
     public function insert_users($data){
-        $this->db->insert('users', $data);
-        $var = $this->db->affected_rows();
+        //bagian pengecekan
+        // print_r($data['name']);die();
+        $name = $data['name'];
+        $cek = $this->db->query("SELECT * FROM USERS WHERE name = '".$name."' ")->num_rows();
+        // print_r($cek);die();
+        if($cek == 1 || $cek > 1){
+            $var = 1;
+        }else{
+            // $var = 0;
+            $this->db->insert('users', $data);
+            $var = $this->db->affected_rows();
+        }
+        // print_r($var);die();
         return $var;
     }
 
@@ -34,6 +45,10 @@ Class Test_model extends CI_Model {
     }
 
     public function delete($id){
+        return $this->db->delete('users', array('id' => $id));
+    }
+
+    public function delete_user($id) {
         return $this->db->delete('users', array('id' => $id));
     }
 }

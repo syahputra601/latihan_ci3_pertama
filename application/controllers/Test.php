@@ -41,7 +41,17 @@ class Test extends CI_Controller {
         );
         $var = $this->Test_model->insert_users($data);
         // print_r($var);die();
-        redirect('test');
+        if($var == 1){
+            // print_r(11);die();
+            echo "<script>alert('Data sudah ada!!!')</script>";
+            redirect('test', 'refresh');
+        }else{
+            // print_r(2);die();
+            echo "<script>alert('Sukses simpan data!!!')</script>";
+            redirect('test', 'refresh');
+        }
+        // print_r($var);die();
+        // redirect('test');
     }
 
     public function update($id){
@@ -60,7 +70,9 @@ class Test extends CI_Controller {
 
     public function delete($id){
         $this->Test_model->delete_user($id);
-        redirect('test');
+        // redirect('test');
+        echo "<script>alert('Sukses Hapus data!!!')</script>";
+            redirect('test', 'refresh');
     }
 
 }
